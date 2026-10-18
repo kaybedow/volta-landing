@@ -388,9 +388,9 @@
   <div class="wrap">
     <h2 id="how">Як замовити</h2>
     <ol class="steps">
-      <li><h3>Залиште заявку</h3><p>Лише ім'я й телефон, займе хвилину.</p></li>
+      <li><h3>Залиште заявку</h3><p>Лише ім'я та телефон, займе хвилину.</p></li>
       <li><h3>Відправимо того ж дня</h3><p>Після короткого дзвінка передаємо на Нову пошту.</p></li>
-      <li><h3>Оплатіть при отриманні</h3><p>Перевірте станцію на пошті й лише тоді платіть.</p></li>
+      <li><h3>Оплатіть при отриманні</h3><p>Перевірте станцію на пошті та лише тоді платіть.</p></li>
     </ol>
   </div>
 </section>
@@ -402,7 +402,7 @@
       <details><summary>Чи можна підключити холодильник?</summary><p>Так, якщо його потужність до 600 Вт. Звичайний холодильник у середньому споживає 60–100 Вт, тож пропрацює кілька годин. Порахувати можна в калькуляторі вище.</p></details>
       <details><summary>Можна користуватися під час зарядки?</summary><p>Так, станція працює як безперебійник: поки є світло, пристрої живляться від мережі, а коли зникає, станція підхоплює їх без вимкнення.</p></details>
       <details><summary>Електрочайник потягне?</summary><p>Ні, чайник споживає близько 2000 Вт, це більше за вихід станції. Для чайника потрібна станція від 2000 Вт.</p></details>
-      <details><summary>Що якщо не підійде?</summary><p>Можна повернути протягом 14 днів, якщо станція в повному комплекті й без пошкоджень.</p></details>
+      <details><summary>Що якщо не підійде?</summary><p>Можна повернути протягом 14 днів, якщо станція в повному комплекті та без пошкоджень.</p></details>
     </div>
   </div>
 </section>
@@ -411,7 +411,7 @@
   <div class="wrap order-grid">
     <div>
       <h2>Замовити VOLTA 600</h2>
-      <p class="lead" style="margin-top:14px">Залиште номер, передзвонимо й підтвердимо. А у формі замовлення зітріть картку, там знижка 500 грн.</p>
+      <p class="lead" style="margin-top:14px">Залиште номер, передзвонимо та підтвердимо. А у формі замовлення зітріть картку, там знижка 500 грн.</p>
     </div>
     <div class="order-card">
       <div class="price-line"><span class="old" data-old hidden>12 999 грн</span><strong data-price>12 999 грн</strong></div>
@@ -426,7 +426,7 @@
   <div class="wrap">
     <div class="foot">
       <div><b>VOLTA</b><br>Зарядні станції для дому</div>
-      <nav aria-label="Інформація"><a href="#how">Доставка й оплата</a><a href="#faq">Гарантія та повернення</a><a href="#specs">Характеристики</a></nav>
+      <nav aria-label="Інформація"><a href="#how">Доставка та оплата</a><a href="#faq">Гарантія та повернення</a><a href="#specs">Характеристики</a></nav>
       <div><a href="tel:+380000000000">0 800 000 000</a><br>щодня 9:00–21:00</div>
     </div>
     <p class="foot-note">© 2026 VOLTA. Демо-проєкт, бренд і ціни умовні.</p>
@@ -479,11 +479,11 @@
       <input type="hidden" name="utm_content"><input type="hidden" name="utm_term"><input type="hidden" name="subid"><input type="hidden" name="click_id">
       <input type="hidden" name="promo" id="promoField">
       <button class="btn full" type="submit">Замовити з оплатою при отриманні</button>
-      <small>Натискаючи кнопку, ви погоджуєтесь на обробку імені й телефону для дзвінка.</small>
+      <small>Натискаючи кнопку, ви погоджуєтесь на обробку імені та телефону для дзвінка.</small>
     </div>
     <div class="thanks" id="thanks" role="status">
       <h3>Дякуємо, заявку прийнято</h3>
-      <p class="muted" style="margin:0 auto">Менеджер передзвонить найближчим часом, щоб підтвердити замовлення й відділення Нової пошти.</p>
+      <p class="muted" style="margin:0 auto">Менеджер передзвонить найближчим часом, щоб підтвердити замовлення та відділення Нової пошти.</p>
     </div>
   </form>
 </dialog>
@@ -572,7 +572,8 @@
     warn.style.display = 'none';
     var h = CAP * EFF / (watts + IDLE);
     hoursEl.innerHTML = (h >= 10 ? Math.round(h) : (Math.round(h * 10) / 10).toString().replace('.', ',')) + ' <small>год</small>';
-    paint(Math.min(10, Math.max(1, Math.round(h / 4.5))));
+    // логарифмічна шкала: різниця між 2 і 6 годинами видна так само добре, як між 10 і 28
+    paint(Math.min(10, Math.max(1, Math.round(10 * Math.log(h + 1) / Math.log(33)))));
   }
   function paint(n){
     cells.querySelectorAll('i').forEach(function(c, i){ c.classList.toggle('on', i < n); });
@@ -752,7 +753,7 @@
   }
   promoRender();
 
-  /* ===== Мобільна кнопка: ховаємо на першому екрані й біля форми ===== */
+  /* ===== Мобільна кнопка: ховаємо на першому екрані та біля форми ===== */
   var sticky = document.getElementById('sticky');
   var hero = document.querySelector('.hero'), order = document.getElementById('order');
   var heroVisible = true, orderVisible = false;
